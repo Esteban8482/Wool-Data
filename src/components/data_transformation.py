@@ -1,3 +1,5 @@
+# Defines a class called DataTransformation that performs data preprocessing and transformation tasks.
+
 import sys
 import numpy as np 
 import pandas as pd
