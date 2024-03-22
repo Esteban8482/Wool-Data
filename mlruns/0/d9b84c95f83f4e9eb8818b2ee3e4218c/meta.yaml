@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/d9b84c95f83f4e9eb8818b2ee3e4218c/artifacts
+end_time: 1711126637294
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d9b84c95f83f4e9eb8818b2ee3e4218c
+run_name: intelligent-sow-855
+run_uuid: d9b84c95f83f4e9eb8818b2ee3e4218c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1711126377373
+status: 3
+tags: []
+user_id: Esteban

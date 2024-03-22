@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/6d49c9c62ae74dad9747d4ea2a693383/artifacts
+end_time: 1711126157550
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6d49c9c62ae74dad9747d4ea2a693383
+run_name: bald-cod-435
+run_uuid: 6d49c9c62ae74dad9747d4ea2a693383
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1711125921010
+status: 3
+tags: []
+user_id: Esteban

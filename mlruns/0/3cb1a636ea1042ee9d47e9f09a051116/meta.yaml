@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/3cb1a636ea1042ee9d47e9f09a051116/artifacts
+end_time: 1711125691810
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3cb1a636ea1042ee9d47e9f09a051116
+run_name: placid-dove-97
+run_uuid: 3cb1a636ea1042ee9d47e9f09a051116
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1711125450059
+status: 3
+tags: []
+user_id: Esteban
