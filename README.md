@@ -1,1 +1,3 @@
-# Machine Learning Project
+# Overview
+
+The repository is a machine learning project using MLflow, whereby it accesses, tracks, and manages school performance metric information. It consists of ingestion of education data through stages: ingestion, transformation, and model training, such that actionable insights and predicted outcomes are produced, which may be useful for data-driven decisions in education planning and strategy.
