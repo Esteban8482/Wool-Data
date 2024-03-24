@@ -16,13 +16,21 @@ import mlflow
 from mlflow import log_metric, log_param, log_artifact
 import mlflow.sklearn
 
+# Database Credentials
+db_username = os.getenv('MLFLOW_DB_USERNAME')
+db_password = os.getenv('MLFLOW_DB_PASSWORD')
+db_host = os.getenv('MLFLOW_DB_HOST', 'localhost')
+db_name = os.getenv('MLFLOW_DB_NAME')
+
 @dataclass
 class ModelTrainerConfig:
     trained_model_file_path = os.path.join('artifact', 'model.pkl')
+    mlflow_tracking_uri = f"mysql+pymysql://{db_username}:{db_password}@{db_host}/{db_name}"    
     
 class ModelTrainer:
     def __init__(self):
         self.model_trainer_config = ModelTrainerConfig()
+        mlflow.set_tracking_uri(self.model_trainer_config.mlflow_tracking_uri)
         
     def initiate_model_trainer(self, train_array, test_array):
         with mlflow.start_run():
@@ -83,6 +91,10 @@ class ModelTrainer:
                 rf_score = r2_score(y_test, rf_pred)
                 logging.info(f"Random Forest R2 Score: {rf_score}")
                 
+                cb_pred = cb_best_model.predict(X_test)
+                cb_score = r2_score(y_test, cb_pred)
+                logging.info(f"CatBoost R2 Score: {cb_score}")
+                
                 # MLFlow Configuration
                 mlflow.log_params(rf_random_search.best_params_)
                 log_metric("Random Forest R2 Score", rf_score)
@@ -91,11 +103,7 @@ class ModelTrainer:
                 mlflow.log_params(cb_grid_search['params'])
                 log_metric("CatBoost R2 Score", cb_score)
                 mlflow.sklearn.log_model(cb_best_model, "CatBoost")
-                
-                cb_pred = cb_best_model.predict(X_test)
-                cb_score = r2_score(y_test, cb_pred)
-                logging.info(f"CatBoost R2 Score: {cb_score}")
-                
+                                
                 save_object(os.path.join('artifact', 'rf_best_params.pkl'), rf_random_search.best_params_)
                 save_object(os.path.join('artifact', 'cb_best_params.pkl'), cb_grid_search['params'])
                 
